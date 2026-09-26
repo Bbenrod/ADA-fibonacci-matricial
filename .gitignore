@@ -4,3 +4,25 @@ __pycache__/
 .idea/
 .vscode/
 .DS_Store
+
+# Credenciales y configuración local.
+.env
+.env.*
+*.pem
+*.key
+*.swp
+*.swo
+*~
+
+# Salidas de compilación: el PDF se entrega localmente.
+build/
+*.pdf
+*.aux
+*.bbl
+*.blg
+*.log
+*.out
+*.toc
+*.fls
+*.fdb_latexmk
+*.synctex.gz
