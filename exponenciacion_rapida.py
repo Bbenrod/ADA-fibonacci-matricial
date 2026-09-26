@@ -10,7 +10,19 @@ def exponenciacion_rapida(x, n):
         exponenciacion_rapida(2, 10) -> 1024
         exponenciacion_rapida(5, 3) -> 125
     """
-    pass
+    if n == 0:
+        return 1
+    if n == 1:
+        return x
+    if n == 2:
+        return x * x
+
+    #Caso Par
+    if n % 2 == 0:
+        return exponenciacion_rapida(exponenciacion_rapida(x,2), n//2)
+    #Caso Impar
+    else:
+        return x * exponenciacion_rapida(exponenciacion_rapida(x,2), (n-1)//2)
 
 
 def probar(nombre, obtenido, esperado):

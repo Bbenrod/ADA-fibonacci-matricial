@@ -7,15 +7,6 @@ MATRIZ_FIBONACCI = pd.DataFrame([
 ])
 
 
-def multiplicar_matrices(A, B):
-    """
-    Multiplica dos matrices 2x2 representadas como DataFrame.
-
-    Puedes apoyarte en pandas para realizar la multiplicación matricial.
-    """
-    pass
-
-
 def potencia_matriz(M, n):
     """
     Calcula M^n usando exponentiation by squaring.
@@ -25,7 +16,25 @@ def potencia_matriz(M, n):
 
     Debe regresar una matriz 2x2.
     """
-    pass
+    #Casos Base
+    if n == 0:
+        return pd.DataFrame([
+            [1, 0],
+            [0, 1]
+        ])
+
+    if n == 1:
+        return M
+
+    if n == 2:
+        return M @ M
+
+    #Caso Par
+    if n % 2 == 0:
+        return potencia_matriz(potencia_matriz(M,2), n//2)
+    #Caso Impar
+    else:
+        return M @ potencia_matriz(potencia_matriz(M,2), (n-1)//2)
 
 
 def fibonacci_matricial(n):
@@ -43,7 +52,8 @@ def fibonacci_matricial(n):
     Complejidad esperada:
         Tiempo: O(log n)
     """
-    pass
+    matriz = potencia_matriz(MATRIZ_FIBONACCI, n)
+    return matriz.iloc[0, 1]
 
 
 def probar(nombre, obtenido, esperado):
@@ -61,3 +71,4 @@ if __name__ == "__main__":
     probar("Fibonacci matricial n=10", fibonacci_matricial(10), 55)
 
     print("\nTodas las pruebas de fibonacci_matricial.py pasaron.")
+

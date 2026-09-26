@@ -1,3 +1,11 @@
+import pandas as pd
+
+
+MATRIZ_FIBONACCI = pd.DataFrame([
+    [0, 1],
+    [1, 1]
+])
+
 def fibonacci(n):
     """
     Calcula el n-ésimo número de Fibonacci de forma lineal.
@@ -11,7 +19,12 @@ def fibonacci(n):
         fibonacci(1) -> 1
         fibonacci(10) -> 55
     """
-    pass
+    if n == 0:
+        return 0
+    matriz = MATRIZ_FIBONACCI
+    for _ in range(n - 1):
+        matriz = matriz @ matriz
+    return matriz.iloc[0, 1]
 
 
 def probar(nombre, obtenido, esperado):
