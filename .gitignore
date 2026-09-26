@@ -14,7 +14,10 @@ __pycache__/
 *.swo
 *~
 
-# Salidas de compilación: el PDF se entrega localmente.
+# El reporte académico pertenece al repositorio privado de clases.
+reporte/
+
+# Artefactos generados.
 build/
 *.pdf
 *.aux
